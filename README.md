@@ -20,8 +20,8 @@ __|__   __|__
 ```
 
 Further goals:
- [x] store and find node
- [x] store edges
- [] graph traversal along the edges
- [] generator function to exhaustively discover all paths from one node to another
- [] possible weights on edges
+ - [x] store and find node
+ - [x] store edges
+ - [] graph traversal along the edges
+ - [] generator function to exhaustively discover all paths from one node to another
+ - [] possible weights on edges
