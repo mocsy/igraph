@@ -1,6 +1,6 @@
 [package]
 name = "igraph"
-version = "0.1.1-alpha.0"
+version = "0.1.1"
 authors = ["Andras Mocsary <425404+mocsy@users.noreply.github.com>"]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
