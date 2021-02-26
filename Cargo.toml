@@ -1,0 +1,16 @@
+[package]
+name = "igraph"
+version = "0.1.0"
+authors = ["Andras Mocsary <425404+mocsy@users.noreply.github.com>"]
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+edition = "2018"
+repository = "https://github.com/mocsy/igraph"
+documentation = "https://docs.rs/igraph"
+description = "A graph representation data structure with a built in index on keys."
+categories = ["data-structures"]
+keywords = ["graph", "directed"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
