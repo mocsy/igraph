@@ -33,7 +33,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// // entries can now be inserted into the empty graph
     /// graph.insert(1, "a");
     /// ```
-    pub fn new() -> IndexedGraph<K,V> {
+    pub fn new() -> IndexedGraph<K, V> {
         IndexedGraph {
             keys: vec![],
             values: vec![],
@@ -81,7 +81,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
         }
         return res;
     }
-    
+
     /// Returns the key-value pairs corresponding to the supplied key.
     ///
     /// # Examples
@@ -98,7 +98,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
         let mut res = vec![];
         if let Some(tup) = self.i.get_key_value(key) {
             for idx in tup.1 {
-                res.push((tup.0,&self.values[*idx]));
+                res.push((tup.0, &self.values[*idx]));
             }
         }
         return res;
@@ -153,7 +153,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
             let key = self.keys.remove(0);
             let value = self.values.remove(0);
             self.i.remove(&key);
-            Some((key,value))
+            Some((key, value))
         }
     }
 
@@ -203,7 +203,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
             let key = self.keys.pop().unwrap();
             let value = self.values.pop().unwrap();
             self.i.remove(&key);
-            Some((key,value))
+            Some((key, value))
         }
     }
 
@@ -254,7 +254,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
         self.keys.push(key);
         return self.values.last();
     }
-    
+
     /// Inserts a key-value pair into the graph.
     ///
     /// If the graph did not have this key present, `None` is returned.
@@ -277,7 +277,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// assert_eq!(graph.insert(37, "c"), Some(&"c"));
     /// //assert_eq!(graph[&37], "c");
     /// ```
-    pub fn insert_edge(&mut self, from: K, to: K) -> Option<(&K,&K)> {
+    pub fn insert_edge(&mut self, from: K, to: K) -> Option<(&K, &K)> {
         self.edges.insert(from.clone(), to);
         self.edges.get_key_value(&from)
     }
@@ -356,19 +356,19 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// ```
     pub fn iter(&self) -> Iter<'_, K, V> {
         Iter {
-            graph : &self,
-            length : self.len(),
+            graph: &self,
+            length: self.len(),
         }
     }
 }
 
 #[derive(Debug, Clone)]
 pub struct Iter<'a, K: 'a, V: 'a> {
-    graph: &'a IndexedGraph<K,V>,
+    graph: &'a IndexedGraph<K, V>,
     length: usize,
 }
 
-impl<'a, K: Ord+Clone, V> IntoIterator for &'a IndexedGraph<K, V> {
+impl<'a, K: Ord + Clone, V> IntoIterator for &'a IndexedGraph<K, V> {
     type Item = (&'a K, &'a V);
     type IntoIter = Iter<'a, K, V>;
 
@@ -386,7 +386,7 @@ impl<'a, K: 'a + Ord + Clone, V: 'a> Iterator for Iter<'a, K, V> {
         } else {
             self.length -= 1;
             let idx = &self.graph.len() - 1 - self.length;
-            Some((&self.graph.keys[idx],&self.graph.values[idx]))
+            Some((&self.graph.keys[idx], &self.graph.values[idx]))
         }
     }
 
@@ -407,21 +407,21 @@ impl<'a, K: 'a + Ord + Clone, V: 'a> Iterator for Iter<'a, K, V> {
     }
 }
 
-impl<K: Ord+Clone, V> FusedIterator for Iter<'_, K, V> {}
+impl<K: Ord + Clone, V> FusedIterator for Iter<'_, K, V> {}
 
-impl<'a, K: 'a +  Ord+Clone, V: 'a> DoubleEndedIterator for Iter<'a, K, V> {
+impl<'a, K: 'a + Ord + Clone, V: 'a> DoubleEndedIterator for Iter<'a, K, V> {
     fn next_back(&mut self) -> Option<(&'a K, &'a V)> {
         if self.length == 0 {
             None
         } else {
             self.length -= 1;
             let idx = self.length;
-            Some((&self.graph.keys[idx],&self.graph.values[idx]))
+            Some((&self.graph.keys[idx], &self.graph.values[idx]))
         }
     }
 }
 
-impl<K: Ord+Clone, V> ExactSizeIterator for Iter<'_, K, V> {
+impl<K: Ord + Clone, V> ExactSizeIterator for Iter<'_, K, V> {
     fn len(&self) -> usize {
         self.length
     }
