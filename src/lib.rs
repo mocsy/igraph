@@ -20,11 +20,11 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     ///
     /// ```
     /// use std::collections::BTreeMap;
-    /// let mut graph = BTreeMap::<u8,u8>::new();
+    /// let mut map = BTreeMap::<u8,u8>::new();
     /// assert_eq!(core::mem::size_of::<BTreeMap<u8,u8>>(), 24);
-    /// assert_eq!(core::mem::size_of_val(&graph), 24);
+    /// assert_eq!(core::mem::size_of_val(&map), 24);
     ///
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     /// let mut graph = IndexedGraph::new();
     ///
     /// assert_eq!(core::mem::size_of::<IndexedGraph<u8,u8>>(), 96);
@@ -48,7 +48,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -65,7 +65,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -87,7 +87,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -110,7 +110,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// assert_eq!(graph.first_key_value(), None);
@@ -132,7 +132,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -163,7 +163,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "b");
@@ -186,7 +186,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// Draining elements in descending order, while keeping a usable graph each iteration.
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -212,7 +212,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(1, "a");
@@ -234,7 +234,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// assert_eq!(graph.insert(37, "a"), Some(&"a"));
@@ -266,7 +266,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// assert_eq!(graph.insert(37, "a"), Some(&"a"));
@@ -287,7 +287,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut a = IndexedGraph::new();
     /// assert_eq!(a.len(), 0);
@@ -303,7 +303,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut a = IndexedGraph::new();
     /// assert!(a.is_empty());
@@ -323,7 +323,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut a = IndexedGraph::new();
     /// a.insert(1, "a");
@@ -340,7 +340,7 @@ impl<K: Ord + Clone, V> IndexedGraph<K, V> {
     /// # Examples
     ///
     /// ```
-    /// use super_tree::IndexedGraph;
+    /// use igraph::IndexedGraph;
     ///
     /// let mut graph = IndexedGraph::new();
     /// graph.insert(3, "c");
